@@ -20,9 +20,17 @@ namespace Desktop_App_Two
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string name = "";
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void NameInputButton_Click(object sender, RoutedEventArgs e)
+        {
+            name = MainTextBox.Text;
+
+            NameLabel.Content = $"Hello, {name}. i HATE you."; /// Same thing as + name
         }
     }
 }
