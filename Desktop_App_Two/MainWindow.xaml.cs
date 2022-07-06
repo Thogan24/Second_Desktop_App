@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Desktop_App_Two
 {
@@ -19,11 +20,25 @@ namespace Desktop_App_Two
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {   
         private string name = "";
         public MainWindow()
         {
             InitializeComponent();
+            startclock();
+        }
+
+        private void startclock()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += tickevent;
+            timer.Start();
+        }
+
+        private void tickevent(object sender, EventArgs e)
+        {
+            datelbl.Text = DateTime.Now.ToString(); /// (@"hh\:mm")
         }
 
         private void NameInputButton_Click(object sender, RoutedEventArgs e)
@@ -31,6 +46,7 @@ namespace Desktop_App_Two
             name = MainTextBox.Text;
 
             NameLabel.Content = $"Hello, {name}. i HATE you."; /// Same thing as + name
+            MessageBox.Show($"Hello, {name}. i HATE you.");
         }
     }
 }
