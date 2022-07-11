@@ -7,11 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <StackPanel>
+        <StackPanel Height="435">
+            <Frame x:Name="Main"/>
             <Label x:Name="NameLabel" Content="" FontWeight="Bold"/>
             <TextBlock Name="datelbl" Text=""  FontSize="18"/>
             <TextBox Margin="10" x:Name="MainTextBox" Width="200px" HorizontalAlignment="left"/>
             <Button Margin="10"  x:Name ="NameInputButton" Content ="Add Name" Width="100" HorizontalAlignment="left" Click="NameInputButton_Click"/>
+            <Button Content="Page 2 (or window 2 LOL!!)" Height="205" Click="Window2_Click" Width="316"/>
+            <Button Content="STOP PROGRAM!!! (bruh)" Height="100" Click="Stop_Click" Width="140" HorizontalAlignment="left"/>
         </StackPanel>
     </StackPanel>
 </Window>

@@ -48,5 +48,25 @@ namespace Desktop_App_Two
             NameLabel.Content = $"Hello, {name}. i HATE you."; /// Same thing as + name
             MessageBox.Show($"Hello, {name}. i HATE you.");
         }
+
+        private void Window2_Click(object sender, RoutedEventArgs e)
+        {
+            //Main.Content = new Page2();
+            Page2 objSecondWindow = new Page2();
+            this.Visibility = Visibility.Hidden;
+            objSecondWindow.Show();
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
     }
 }
